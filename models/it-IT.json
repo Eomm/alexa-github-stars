@@ -1,0 +1,97 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "github star",
+      "intents": [
+        {
+          "name": "FollowerCountIntent",
+          "slots": [
+            {
+              "name": "gitUser",
+              "type": "GITHUB_USER",
+              "samples": [
+                "di {gitUser}",
+                "{gitUser}"
+              ]
+            }
+          ],
+          "samples": [
+            "quanti follower ha {gitUser}",
+            "follower {gitUser}"
+          ]
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        }
+      ],
+      "types": [
+        {
+          "name": "GITHUB_USER",
+          "values": [
+            {
+              "name": {
+                "value": "mcollina",
+                "synonyms": [
+                  "Matteo Collina"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "eomm"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "FollowerCountIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "gitUser",
+              "type": "GITHUB_USER",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.Who"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.Who",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Di qualche utente github?"
+          }
+        ]
+      }
+    ]
+  }
+}
