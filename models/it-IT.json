@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "github star",
+      "invocationName": "github",
       "intents": [
         {
           "name": "FollowerCountIntent",
@@ -19,10 +19,6 @@
             "quanti follower ha {gitUser}",
             "follower {gitUser}"
           ]
-        },
-        {
-          "name": "AMAZON.FallbackIntent",
-          "samples": []
         },
         {
           "name": "AMAZON.CancelIntent",

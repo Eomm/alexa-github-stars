@@ -12,7 +12,10 @@ const FollowerCountHandler = {
         && request.intent.name === 'FollowerCountIntent');
   },
   handle(handlerInput) {
-    const speechOutput = 'Manuel ha 0 followers';
+    console.log('Slots', handlerInput.requestEnvelope.request.intent.slots);
+    const user = handlerInput.requestEnvelope.request.intent.slots.Item;
+
+    const speechOutput = `Input ha 0 <lang xml:lang="en-EN">followers</lang>`;
 
     return handlerInput.responseBuilder
       .speak(speechOutput)

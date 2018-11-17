@@ -4,14 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "serverless deploy -v"
   },
-  "keywords": [],
+  "keywords": [
+    "alexa",
+    "skill",
+    "github",
+    "amazon",
+    "serverless",
+    "ask-sdk"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^23.1.0",
-    "ask-sdk": "^2.3.0",
     "coveralls": "^3.0.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
@@ -24,5 +31,7 @@
   "jest": {
     "testEnvironment": "node"
   },
-  "dependencies": {}
+  "dependencies": {
+    "ask-sdk": "^2.3.0"
+  }
 }
