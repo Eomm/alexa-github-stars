@@ -15,7 +15,9 @@ provider:
 functions:
   alexa-github-stars:
     handler: lambda/index.handler
+    environment:
+      GITHUB_API_TOKEN: ${file(./.env.json):GITHUB_API_TOKEN} #${env:GITHUB_API_TOKEN}
     events:
       - alexaSkill:
-          appId: amzn1.ask.skill.5651b8ac-4644-4bbf-a2b0-df4d5bf315b7 #${opt:skillId}
+          appId: ${file(./.env.json):ALEXA_SKILL_ID}
           enabled: false
