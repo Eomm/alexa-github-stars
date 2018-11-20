@@ -27,7 +27,7 @@ const FollowerCountHandler = {
     const search = user.value;
     return github.getFollowersCount(search)
       .then((count) => {
-        const speechOutput = `${search} ha ${count} follower`;
+        const speechOutput = `${search} ha ${count} <lang xml:lang='en-US'>follower${count > 1 ? 's' : ''}</lang>`;
         return handlerInput.responseBuilder
           // .withSimpleCard(SKILL_NAME, randomFact)
           .speak(speechOutput);
