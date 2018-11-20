@@ -1,9 +1,11 @@
 'use strict';
+// @ts-check
 /* eslint-disable  func-names */
 /* eslint-disable  no-console */
 
 const Alexa = require('ask-sdk');
 const GitHub = require('./utils/github-info');
+const log = require('./utils/log');
 
 const github = new GitHub(process.env.GITHUB_API_TOKEN);
 
@@ -14,23 +16,31 @@ const FollowerCountHandler = {
       || (request.type === 'IntentRequest'
         && request.intent.name === 'FollowerCountIntent');
   },
+
   handle(handlerInput) {
     const user = handlerInput.requestEnvelope.request.intent.slots.gitUser;
     if (!user) {
-      console.log('Slots', handlerInput.requestEnvelope.request.intent.slots);
+      log('Slots', handlerInput.requestEnvelope.request.intent.slots);
     }
-    
-    // TODO fall back
-    const search = user ? user.value : 'eomm';
-    console.log('User is', user);
+
+    log('User is', user);
+    const search = user.value;
     return github.getFollowersCount(search)
       .then((count) => {
         const speechOutput = `${search} ha ${count} follower`;
         return handlerInput.responseBuilder
-          .speak(speechOutput)
           // .withSimpleCard(SKILL_NAME, randomFact)
-          .getResponse();
+          .speak(speechOutput);
       })
+      .catch((err) => {
+        log(err);
+        const speechOutput = `Non ho trovato l'account ${search}`;
+        return handlerInput.responseBuilder
+          .speak(speechOutput);
+      })
+      .then((responseBuild) => {
+        return responseBuild.getResponse();
+      });
   },
 };
 
@@ -68,7 +78,7 @@ const SessionEndedRequestHandler = {
     return request.type === 'SessionEndedRequest';
   },
   handle(handlerInput) {
-    console.log(`Session ended with reason: ${handlerInput.requestEnvelope.request.reason}`);
+    log(`Session ended with reason: ${handlerInput.requestEnvelope.request.reason}`);
 
     return handlerInput.responseBuilder.getResponse();
   },
@@ -79,7 +89,7 @@ const ErrorHandler = {
     return true;
   },
   handle(handlerInput, error) {
-    console.log(`Error handled: ${error.message}`);
+    log(`Error handled: ${error.message}`);
 
     return handlerInput.responseBuilder
       .speak('Mi dispiace, ho sbagliato qualcosa.')

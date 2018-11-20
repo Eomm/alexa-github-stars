@@ -1,6 +1,7 @@
 'use strict';
 
 const http = require('https');
+const log = require('./log');
 
 class GithubInfo {
   constructor(token) {
@@ -41,7 +42,17 @@ class GithubInfo {
     return this._post(`{
       "query": "query { user (login: ${userId})  { followers{totalCount} }}"
     }`)
-      .then((result) => result.data.user.followers.totalCount);
+      .then((result) => {
+        log(JSON.stringify(result));
+        if (result.data.user) {
+          return result.data.user.followers.totalCount
+        }
+        let errMessage = 'NOT_FOUND';
+        if (result.errors) {
+          errMessage = result.errors.pop();
+        }
+        throw new Error(errMessage);
+      });
   }
 
 }

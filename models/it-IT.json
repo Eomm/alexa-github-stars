@@ -8,7 +8,7 @@
           "slots": [
             {
               "name": "gitUser",
-              "type": "GITHUB_USER",
+              "type": "AMAZON.SearchQuery",
               "samples": [
                 "di {gitUser}",
                 "{gitUser}"
@@ -17,6 +17,7 @@
           ],
           "samples": [
             "quanti follower ha {gitUser}",
+            "follower di {gitUser}",
             "follower {gitUser}"
           ]
         },
@@ -37,26 +38,7 @@
           "samples": []
         }
       ],
-      "types": [
-        {
-          "name": "GITHUB_USER",
-          "values": [
-            {
-              "name": {
-                "value": "mcollina",
-                "synonyms": [
-                  "Matteo Collina"
-                ]
-              }
-            },
-            {
-              "name": {
-                "value": "eomm"
-              }
-            }
-          ]
-        }
-      ]
+      "types": []
     },
     "dialog": {
       "intents": [
@@ -67,7 +49,7 @@
           "slots": [
             {
               "name": "gitUser",
-              "type": "GITHUB_USER",
+              "type": "AMAZON.SearchQuery",
               "confirmationRequired": false,
               "elicitationRequired": true,
               "prompts": {

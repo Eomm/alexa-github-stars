@@ -17,6 +17,7 @@ functions:
     handler: lambda/index.handler
     environment:
       GITHUB_API_TOKEN: ${file(./.env.json):GITHUB_API_TOKEN} #${env:GITHUB_API_TOKEN}
+      PRINT_LOG: ${file(./.env.json):PRINT_LOG}
     events:
       - alexaSkill:
           appId: ${file(./.env.json):ALEXA_SKILL_ID}
