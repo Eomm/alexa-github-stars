@@ -7,14 +7,14 @@
           "summary": "Resta sempre aggiornato su quello che accade sulla piattaforma per programmatori: github!",
           "description": "Con funzioni sempre nuove ed in rapido aggiornamento, Github Stars, ti consente di chiedere ad Alexa informazioni sul mondo di github e sapere sempre ciò che accade. Nel tempo questa skill si arricchirà con nuove funzioni sempre più interessanti fino a controllare le Issue o far eseguire dei merge da Alexa! Questo è un progetto open-source che puoi trovare qui: https://github.com/Eomm/alexa-github-stars Segui i suoi sviluppi e resta aggiornato sulle nuove funzionalità aggiunte! Grazie ad Igor Monti per il fantastico logo!",
           "examplePhrases": [
-            "Alexa, chiedi a git quanti follower ha eomm",
-            "Alexa, chiedi a git quanti follower ha torvalds",
-            "Alexa, chiedi a git follower mariofusco"
+            "Alexa, chiedi ad assistente git quanti follower ha eomm",
+            "Alexa, chiedi ad assistente git quanti follower ha torvalds",
+            "Alexa, chiedi ad assistente git follower mariofusco"
           ]
         }
       },
       "isAvailableWorldwide": false,
-      "testingInstructions": "TODO: Sample Testing Instructions.",
+      "testingInstructions": "chiedi ad assistente git quanti follower ha eomm",
       "category": "SOCIAL_NETWORKING",
       "distributionCountries": []
     },

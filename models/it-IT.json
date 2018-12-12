@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "github",
+      "invocationName": "assistente git",
       "intents": [
         {
           "name": "FollowerCountIntent",
