@@ -11,6 +11,16 @@
             "Alexa, chiedi ad assistente git quanti follower ha torvalds",
             "Alexa, chiedi ad assistente git follower mariofusco"
           ]
+        },
+        "en-US":{
+          "name": "Github Stars",
+          "summary": "Stay up-to-date with everything that happens on github!",
+          "description": "With new and rapidly updating features all the time, Github Stars, allows you to ask Alexa about the world of github and always know what is going on. Over time this skill will be enriched with more and more interesting new features up to and including controlling Issues or having Alexa perform merges! This is an open-source project that you can find here: https://github.com/Eomm/alexa-github-stars Follow its developments and stay updated on new features added! Thanks to Igor Monti for the great logo!",
+          "examplePhrases": [
+            "Alexa, ask to git assistant how many followers has eomm",
+            "Alexa, ask to git assistant how many followers has torvalds",
+            "Alexa, ask to git assistant the followers of mariofusco"
+          ]
         }
       },
       "isAvailableWorldwide": false,
