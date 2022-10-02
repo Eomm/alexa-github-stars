@@ -1,0 +1,75 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "git assistant",
+            "intents": [
+                {
+                    "name": "FollowerCountIntent",
+                    "slots": [
+                        {
+                            "name": "gitUser",
+                            "type": "AMAZON.SearchQuery",
+                            "samples": [
+                                "of {gitUser}",
+                                "{gitUser}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "how many followers has {gitUser}",
+                        "followers of {gitUser}",
+                        "followers {gitUser}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "FollowerCountIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "gitUser",
+                            "type": "AMAZON.SearchQuery",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.Who"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.Who",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Of some github user?"
+                    }
+                ]
+            }
+        ]
+    }
+}
